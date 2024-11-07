@@ -1,7 +1,6 @@
 # import whisper
 from pydub import AudioSegment
 from openai import OpenAI
-
 from config import Config
 
 
@@ -23,7 +22,8 @@ def get_audio_duration(path):
 ### If you want to host your own whisper model, use the function below instead of transcribe_api. 
 ### Tip: the API is very cheap and the model is very fat. It's definitelyworth the money
 
-# def transcribe(path, model_name="base"): 
+# def transcribe(path, model_name="base"):  # Select your model type
+# import whisper
 #     try:
 #         model = whisper.load_model(model_name)
 #         print('transcription in progress')
