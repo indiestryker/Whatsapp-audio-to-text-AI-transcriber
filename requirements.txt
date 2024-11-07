@@ -1,0 +1,7 @@
+openai-whisper
+python-dotenv
+twilio
+datetime
+gunicorn
+openai
+pydub

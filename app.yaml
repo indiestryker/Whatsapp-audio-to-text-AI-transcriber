@@ -1,0 +1,19 @@
+runtime: python39
+service: default
+entrypoint: gunicorn -w 3 -t 180 -b :$PORT app:app 
+
+handlers:
+- url: /.*  # Handle all routes
+  script: auto  # Automatically route requests to your app
+
+instance_class: F4
+
+automatic_scaling:
+  target_cpu_utilization: 0.7
+  max_instances: 5
+
+env_variables:
+  TWILIO_SID: '{{YOUR_SID}}'
+  TWILIO_TOKEN: '{{YOUR_TWILIO_TOKEN}}'
+  TWILIO_NUMBER: '{{YOUR_TWILIO_PHONE_NUMBER}}'
+  OPEN_API_KEY: '{{YOUR_OPEN_AI_KEY}}'
