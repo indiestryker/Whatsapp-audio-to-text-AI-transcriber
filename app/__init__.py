@@ -3,6 +3,7 @@ import requests
 from twilio.rest import Client
 import tempfile
 import logging
+import os
 
 from services import transcribe_api
 from config import Config
@@ -53,8 +54,17 @@ def send_whatsapp_message(client, phone_number, text): # Send a whatsapp message
 
 app = Flask(__name__)
 
-# Webhook to receive WhatsApp audio
+# if Config.DB_URL:
+#     root_cert_path = os.path.join(os.path.dirname(__file__), 'certs', 'root.crt') # Look for a DB certificate called root.crt in the folder certs
+#     database_uri = f"{Config.DB_URL}&sslrootcert={root_cert_path}
+# else:
+#     database_uri = f"{Config.DB_URL}
 
+# app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db.init_app(app)
+
+# Webhook to receive WhatsApp audio
 @app.route('/whatsapp', methods=['POST'])
 def wa():
     # Strip relevant information from message
