@@ -2,7 +2,7 @@
 
 A Flask backend that can transcribe whatsapp audios into text using OpenAI Whisper model.
 
-Hosted server link [HERE[(https://en.transcribe-bot.com/)
+Hosted server link [HERE](https://en.transcribe-bot.com/)
 
 ### Features, aka why it is special ❤️
 - The backend app is ready to be used with error handling and fallback. You can start with just a production Twilio number. It has only one straightforward POST API endpoint.
